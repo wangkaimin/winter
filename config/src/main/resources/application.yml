@@ -1,0 +1,15 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+  instance:
+    hostname: spring-config
+server:
+  port: 9120

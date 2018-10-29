@@ -1,0 +1,17 @@
+eureka:
+  client:
+    eureka-server-port: 8761
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+  instance:
+    hostname: spring-eureka
+server:
+  port: 8761
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-eureka

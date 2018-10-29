@@ -1,0 +1,15 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-zuul
+eureka:
+  instance:
+    hostname: spring-zuul
+  client:
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+server:
+  port: 9111

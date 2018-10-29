@@ -1,0 +1,20 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-hystrix
+eureka:
+  instance:
+    hostname: spring-hystrix
+  client:
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [health,info,hystrix.stream]
+server:
+  port: 9130

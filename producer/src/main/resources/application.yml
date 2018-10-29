@@ -1,0 +1,25 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-producer
+  zipkin:
+    base-url: http://spring-zipkin:9411
+  sleuth:
+    sampler:
+      probability: 1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+  instance:
+    hostname: spring-producer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [health,instances,info,hystrix.stream]
+server:
+  port: 9081

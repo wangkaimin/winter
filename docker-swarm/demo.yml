@@ -1,0 +1,47 @@
+version: '3.2'
+
+services:
+  spring-demo:
+    image: com.springio.winter/demo:0.0.1-SNAPSHOT
+    environment:
+      TZ: "Asia/Shanghai"
+      JAVA_OPTS: "
+        -server
+        -Xms128M
+        -Xmx128M
+        -XX:SurvivorRatio=1
+        -XX:+UseConcMarkSweepGC
+        -XX:+CMSParallelRemarkEnabled
+        -XX:+UseCMSCompactAtFullCollection
+        -XX:CMSFullGCsBeforeCompaction=0
+        -XX:+CMSClassUnloadingEnabled
+        -XX:LargePageSizeInBytes=128M
+        -XX:+UseFastAccessorMethods
+        -XX:+UseCMSInitiatingOccupancyOnly
+        -XX:CMSInitiatingOccupancyFraction=80
+        -XX:SoftRefLRUPolicyMSPerMB=0
+        -XX:+PrintClassHistogram
+        -XX:+PrintGCDetails
+        -XX:+PrintGCTimeStamps
+        -XX:+PrintHeapAtGC
+        -Djava.awt.headless=true
+        -XX:+HeapDumpOnOutOfMemoryError
+        -Dspring.profiles.active=prod"
+    ports:
+    - 9080:9080
+    networks:
+    - winter
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 10s
+    logging:
+      options:
+        max-size: 50m
+networks:
+  winter:
+    external:
+      name: winter_winter

@@ -1,0 +1,20 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+eureka:
+  instance:
+    hostname: spring-gateway
+  client:
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+server:
+  port: 9110

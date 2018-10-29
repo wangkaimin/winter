@@ -1,0 +1,25 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://spring-admin:9180
+  application:
+    name: spring-turbine
+eureka:
+  instance:
+    hostname: spring-turbine
+  client:
+    service-url:
+      defaultZone: http://spring-eureka:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: [health,info,hystrix.stream]
+server:
+  port: 9140
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: spring-demo, spring-producer
+  cluster-name-expression: new String("default")
