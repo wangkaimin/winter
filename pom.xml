@@ -38,7 +38,7 @@
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.0.3.RELEASE</spring-boot-admin.version>
-        <spring-boot-config.version>2.0.1.RELEASE</spring-boot-config.version>
+        <spring-boot-config.version>2.0.5.RELEASE</spring-boot-config.version>
         <spring-boot-eureka.version>2.0.1.RELEASE</spring-boot-eureka.version>
         <spring-boot-gateway.version>2.0.1.RELEASE</spring-boot-gateway.version>
 
